@@ -1,553 +1,1315 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>全球设计资讯快报 · 2026.03.16</title>
-  <style>
-    :root {
-      --bg: #f7f6f3;
-      --card: #ffffff;
-      --accent: #1a1a1a;
-      --tag-id: #e8f4fd;
-      --tag-id-text: #1a6fa0;
-      --tag-arch: #f0f7ee;
-      --tag-arch-text: #2d7a3a;
-      --tag-vis: #fdf3e8;
-      --tag-vis-text: #b5620a;
-      --tag-art: #f5eefa;
-      --tag-art-text: #7b3faa;
-      --tag-tech: #fff0f0;
-      --tag-tech-text: #c0392b;
-      --border: #e8e6e1;
-      --muted: #888;
-      --highlight: #f0ebe0;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Valentino FW2026 · Interferenze · 大秀全记录</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap');
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --red: #B5121B;
+    --black: #0a0a0a;
+    --white: #FAFAF8;
+    --cream: #F5F0E8;
+    --gold: #C9A96E;
+    --gray: #888;
+    --lightgray: #e8e4dc;
+  }
 
-    body {
-      font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
-      background: var(--bg);
-      color: var(--accent);
-      min-height: 100vh;
-    }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    header {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 48px 40px 36px;
-    }
+  html { scroll-behavior: smooth; }
 
-    header .label {
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 12px;
-    }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
 
-    header h1 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
 
-    header .meta {
-      margin-top: 14px;
-      font-size: 13px;
-      color: #aaa;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 70%, #0a0a0a 100%),
+      url('https://images.valentino.com/medias/sys_master/images/images/hb5/h3a/17286148317214/AlessandroMichele_Valentino_FW26_BTS_Hero.jpg') center/cover no-repeat;
+    transform: scale(1.05);
+    animation: slowzoom 12s ease-out forwards;
+  }
 
-    header .meta span { display: flex; align-items: center; gap: 5px; }
+  /* fallback bg in case Valentino CDN is unavailable */
+  .hero-bg-fallback {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a0a0a 0%, #2d0d0d 30%, #0a0a1a 70%, #0a0a0a 100%);
+    z-index: -1;
+  }
 
-    .sources-bar {
-      background: #2a2a2a;
-      padding: 10px 40px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
+  @keyframes slowzoom {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.0); }
+  }
 
-    .sources-bar .src-label {
-      font-size: 11px;
-      color: #666;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-right: 4px;
-    }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 60px 80px;
+    max-width: 900px;
+  }
 
-    .sources-bar a {
-      font-size: 12px;
-      color: #ccc;
-      text-decoration: none;
-      background: #383838;
-      padding: 3px 10px;
-      border-radius: 20px;
-      transition: background 0.2s;
-    }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
 
-    .sources-bar a:hover { background: #555; color: #fff; }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
 
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
+  .hero-title .red { color: var(--red); }
+  .hero-title .italic { font-style: italic; }
 
-    .highlight-box {
-      background: var(--highlight);
-      border-left: 4px solid #c0a060;
-      padding: 16px 20px;
-      border-radius: 0 8px 8px 0;
-      margin-bottom: 40px;
-      font-size: 14px;
-      line-height: 1.7;
-    }
+  .hero-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 32px;
+    letter-spacing: 0.05em;
+  }
 
-    .highlight-box strong { color: #8a6020; }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
 
-    .section-title {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 18px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
+  .hero-meta-item {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 16px;
-      margin-bottom: 48px;
-    }
+  .hero-meta-item strong {
+    display: block;
+    color: var(--white);
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    margin-bottom: 3px;
+  }
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: box-shadow 0.2s, transform 0.15s;
-      text-decoration: none;
-      color: inherit;
-    }
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    right: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
 
-    .card:hover {
-      box-shadow: 0 6px 24px rgba(0,0,0,0.09);
-      transform: translateY(-2px);
-    }
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+    animation: scrollline 1.8s ease-in-out infinite;
+  }
 
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 8px;
-    }
+  @keyframes scrollline {
+    0%   { transform: scaleY(0); transform-origin: top; }
+    50%  { transform: scaleY(1); transform-origin: top; }
+    51%  { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: bottom; }
+  }
 
-    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  /* ── NAV ── */
+  .section-nav {
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 0 60px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+  }
 
-    .tag {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 2px 8px;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
+  .section-nav a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 18px 20px;
+    white-space: nowrap;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+  }
 
-    .tag.id    { background: var(--tag-id);   color: var(--tag-id-text); }
-    .tag.arch  { background: var(--tag-arch);  color: var(--tag-arch-text); }
-    .tag.vis   { background: var(--tag-vis);   color: var(--tag-vis-text); }
-    .tag.art   { background: var(--tag-art);   color: var(--tag-art-text); }
-    .tag.tech  { background: var(--tag-tech);  color: var(--tag-tech-text); }
+  .section-nav a:hover {
+    color: var(--white);
+    border-bottom-color: var(--red);
+  }
 
-    .source-date {
-      font-size: 11px;
-      color: var(--muted);
-      white-space: nowrap;
-      flex-shrink: 0;
-      text-align: right;
-      line-height: 1.5;
-    }
+  /* ── SECTION COMMON ── */
+  section { padding: 100px 60px; }
 
-    .card h3 {
-      font-size: 14.5px;
-      font-weight: 600;
-      line-height: 1.5;
-      color: #1a1a1a;
-    }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
 
-    .card p {
-      font-size: 13px;
-      color: #555;
-      line-height: 1.65;
-      flex: 1;
-    }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
 
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 4px;
-    }
+  .section-title em {
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+  }
 
-    .read-link {
-      font-size: 12px;
-      font-weight: 500;
-      color: #1a6fa0;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--red);
+    margin: 24px 0 40px;
+  }
 
-    .read-link:hover { text-decoration: underline; }
+  /* ── INTRO BAND ── */
+  .intro-band {
+    background: var(--red);
+    padding: 40px 60px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
 
-    .featured {
-      border: 1.5px solid #c0a060;
-      position: relative;
-    }
+  .intro-band-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.5vw, 32px);
+    line-height: 1.4;
+    flex: 1;
+  }
 
-    .featured-badge {
-      position: absolute;
-      top: -1px;
-      right: 16px;
-      background: #c0a060;
-      color: #fff;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      padding: 2px 8px;
-      border-radius: 0 0 6px 6px;
-      text-transform: uppercase;
-    }
+  .intro-band-attr {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    white-space: nowrap;
+  }
 
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 12px;
-      color: #bbb;
-      border-top: 1px solid var(--border);
-    }
+  /* ── STORY SECTION ── */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-    @media (max-width: 600px) {
-      header { padding: 32px 20px 24px; }
-      .sources-bar { padding: 10px 20px; }
-      .container { padding: 28px 16px 60px; }
-      header h1 { font-size: 22px; }
-    }
-  </style>
+  .story-text p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 20px;
+  }
+
+  .story-text p strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .story-img-stack {
+    position: relative;
+  }
+
+  .story-img-main {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    background: #1a1a1a;
+  }
+
+  .story-img-caption {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+
+  /* ── LOOKS GRID ── */
+  .looks-section {
+    background: #0d0d0d;
+  }
+
+  .looks-header {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+
+  .looks-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .look-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .look-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .look-img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    display: block;
+    background: #1a1a1a;
+    transition: transform 0.6s ease;
+  }
+
+  .look-item:first-child .look-img {
+    min-height: 700px;
+  }
+
+  .look-item:hover .look-img {
+    transform: scale(1.04);
+  }
+
+  .look-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+
+  .look-item:hover .look-overlay { opacity: 1; }
+
+  .look-info {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .look-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* ── HIGHLIGHT CARDS ── */
+  .highlights-section {
+    background: var(--black);
+  }
+
+  .highlights-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .highlight-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 0;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .highlight-card:hover {
+    border-color: var(--red);
+  }
+
+  .highlight-card-img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    background: #1a1a1a;
+  }
+
+  .highlight-card-body {
+    padding: 28px;
+  }
+
+  .highlight-tag {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .highlight-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .highlight-card p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* ── FRONTROW ── */
+  .frontrow-section {
+    background: #0d0d0d;
+  }
+
+  .frontrow-header {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+
+  .frontrow-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .frontrow-person {
+    text-align: center;
+  }
+
+  .frontrow-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    background: #1a1a1a;
+    margin-bottom: 16px;
+    filter: grayscale(20%);
+    transition: filter 0.3s;
+  }
+
+  .frontrow-person:hover .frontrow-img {
+    filter: grayscale(0%);
+  }
+
+  .frontrow-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .frontrow-desc {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 8px;
+  }
+
+  .frontrow-note {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* ── VENUE ── */
+  .venue-section {
+    background: var(--black);
+    padding: 100px 0;
+    overflow: hidden;
+  }
+
+  .venue-inner {
+    padding: 0 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .venue-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 60px;
+  }
+
+  .venue-img-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .venue-img {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    object-fit: cover;
+    display: block;
+    background: #1a1a1a;
+  }
+
+  .venue-text {
+    background: #111;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .venue-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .venue-text p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 16px;
+  }
+
+  .venue-facts {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .venue-fact {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 16px;
+  }
+
+  .venue-fact-icon {
+    color: var(--gold);
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .venue-fact-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+
+  .venue-fact-text strong {
+    color: var(--white);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ── CRITICAL REVIEW ── */
+  .review-section {
+    background: #0d0d0d;
+  }
+
+  .reviews-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .review-card {
+    padding: 40px;
+    border-left: 3px solid var(--red);
+    background: rgba(255,255,255,0.02);
+  }
+
+  .review-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 20px;
+  }
+
+  .review-source {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── KEY PIECES ── */
+  .pieces-section {
+    background: var(--black);
+  }
+
+  .pieces-row {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .piece-item {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .piece-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+    background: #1a1a1a;
+    transition: transform 0.5s ease;
+  }
+
+  .piece-item:hover .piece-img {
+    transform: scale(1.06);
+  }
+
+  .piece-label {
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.4;
+  }
+
+  .piece-label strong {
+    display: block;
+    color: var(--white);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  /* ── FINALE BANNER ── */
+  .finale-banner {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0a0a0a;
+  }
+
+  .finale-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%),
+      url('https://images.valentino.com/medias/sys_master/images/images/ha2/h3a/17286148382750/VLT_FW26_BTS_08.jpg') center/cover no-repeat;
+  }
+
+  .finale-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 40px;
+  }
+
+  .finale-content .big-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(24px, 4vw, 52px);
+    line-height: 1.3;
+    max-width: 800px;
+    margin: 0 auto 20px;
+  }
+
+  .finale-content .attribution {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  /* ── MEDIA ROW ── */
+  .media-section {
+    background: var(--black);
+    padding: 60px;
+  }
+
+  .media-row {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .media-badge {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    padding: 10px 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.2s;
+  }
+
+  .media-badge:hover {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #050505;
+    padding: 48px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── IMAGE PLACEHOLDER STYLE ── */
+  .img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.15);
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    section { padding: 60px 24px; }
+    .hero-content { padding: 0 24px 60px; }
+    .section-nav { padding: 0 24px; }
+    .story-grid { grid-template-columns: 1fr; }
+    .looks-grid { grid-template-columns: 1fr 1fr; }
+    .looks-grid .look-item:first-child { grid-column: span 2; }
+    .highlights-grid { grid-template-columns: 1fr; }
+    .frontrow-grid { grid-template-columns: 1fr 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .pieces-row { grid-template-columns: repeat(3, 1fr); }
+    .venue-split { grid-template-columns: 1fr; }
+    footer { padding: 40px 24px; }
+    .intro-band { padding: 30px 24px; flex-direction: column; }
+    .media-section { padding: 40px 24px; }
+    .scroll-hint { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .looks-grid { grid-template-columns: 1fr; }
+    .looks-grid .look-item:first-child { grid-column: span 1; }
+    .frontrow-grid { grid-template-columns: 1fr 1fr; }
+    .pieces-row { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
 </head>
 <body>
 
-<header>
-  <div class="label">Art & Design Intelligence</div>
-  <h1>全球设计资讯快报</h1>
-  <div class="meta">
-    <span>📅 2026年3月16日</span>
-    <span>📌 17条精选资讯</span>
-    <span>🔍 工业设计 · 建筑 · 视觉 · 艺术</span>
+<!-- ══ HERO ══ -->
+<section class="hero" id="top">
+  <div class="hero-bg-fallback"></div>
+  <div class="hero-bg" onerror="this.style.background='linear-gradient(135deg,#1a0505 0%,#2d0808 40%,#0a0a0a 100%)'"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Valentino · Fall / Winter 2026 · Palazzo Barberini, Rome</div>
+    <h1 class="hero-title">
+      <span class="red">INTER</span><br/>
+      <span class="italic">ferenze</span>
+    </h1>
+    <div class="hero-sub">Alessandro Michele 的罗马宣言</div>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>2026.03.12</strong>大秀日期</div>
+      <div class="hero-meta-item"><strong>Palazzo Barberini</strong>秀场地点</div>
+      <div class="hero-meta-item"><strong>Alessandro Michele</strong>创意总监</div>
+      <div class="hero-meta-item"><strong>43 Looks</strong>系列造型数</div>
+    </div>
   </div>
-</header>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    scroll
+  </div>
+</section>
 
-<div class="sources-bar">
-  <span class="src-label">信源</span>
-  <a href="https://www.dezeen.com" target="_blank">Dezeen</a>
-  <a href="https://www.designboom.com" target="_blank">Designboom</a>
-  <a href="https://www.yankodesign.com" target="_blank">Yanko Design</a>
-  <a href="https://www.archdaily.com" target="_blank">ArchDaily</a>
-  <a href="https://www.core77.com" target="_blank">Core77</a>
+<!-- ══ NAV ══ -->
+<nav class="section-nav">
+  <a href="#story">大秀故事</a>
+  <a href="#looks">秀场造型</a>
+  <a href="#highlights">三大亮点</a>
+  <a href="#frontrow">前排嘉宾</a>
+  <a href="#venue">秀场空间</a>
+  <a href="#reviews">媒体评论</a>
+  <a href="#pieces">关键单品</a>
+</nav>
+
+<!-- ══ INTRO QUOTE BAND ══ -->
+<div class="intro-band">
+  <div class="intro-band-quote">
+    "Interferenze 揭示了规则与混沌的碰撞——当两个世界相遇，便产生了新的语言。"
+  </div>
+  <div class="intro-band-attr">Alessandro Michele<br/>Creative Director, Valentino</div>
 </div>
 
-<div class="container">
-
-  <!-- 本期亮点 -->
-  <div class="highlight-box">
-    🏆 <strong>本期重磅：</strong>2026年普利兹克建筑奖（建筑界诺贝尔）授予智利建筑师 <strong>Smiljan Radić Clarke</strong>，南美第二位获奖者，以"激进原创性"著称。&nbsp;&nbsp;
-    🏙️ <strong>Design Shanghai 2026</strong> 将于 3月19-22日 在上海展览中心开幕，全球500+品牌参展，亚洲年度最大设计盛会。
+<!-- ══ STORY ══ -->
+<section id="story">
+  <div class="story-grid">
+    <div class="story-text">
+      <div class="section-label">大秀故事</div>
+      <h2 class="section-title">一场<em>回归与</em><br/>颠覆</h2>
+      <div class="divider"></div>
+      <p>
+        <strong>2026年3月12日</strong>，Valentino 将秀场从巴黎时装周移回了故土罗马——选址于17世纪巴洛克宫殿 Palazzo Barberini，这里也是宫殿史上<strong>首次举办时装秀</strong>的场合。
+      </p>
+      <p>
+        这场大秀有着特殊的历史背景：品牌创始人 <strong>Valentino Garavani</strong> 于今年早些时候辞世。这不仅是 Alessandro Michele 向创始人的深情致敬，更是他用罗马血脉为 Valentino 书写新篇章的宣言。
+      </p>
+      <p>
+        系列命名 <strong>"Interferenze"（干扰）</strong>，来自 Michele 对自身角色的定义——作为一个以自己的名字为别人的品牌创作的设计师，他本身就是一种"干扰"。他让自己的美学与 Garavani 的遗产发生碰撞，在冲突中生长出新的语言。
+      </p>
+      <p>
+        WWD 评价道：这是 Michele 迄今在 Valentino 最自然、最与品牌精神融合的一季。装饰主义依然在场，但克制了——结构清晰了，设计感觉"更自如"了。
+      </p>
+    </div>
+    <div class="story-img-stack">
+      <img
+        class="story-img-main"
+        src="https://images.valentino.com/medias/sys_master/images/images/h00/hf9/17286032947230/Valentino_FW26_Show_BTS_02.jpg"
+        alt="Alessandro Michele at Valentino FW2026"
+        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22800%22><rect fill=%22%231a1a1a%22 width=%22100%25%22 height=%22100%25%22/><text x=%2250%25%22 y=%2250%25%22 fill=%22%23555%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 font-family=%22sans-serif%22>Alessandro Michele · Valentino FW2026</text></svg>'"
+      />
+      <div class="story-img-caption">Photo courtesy of Valentino · Palazzo Barberini, Rome</div>
+    </div>
   </div>
+</section>
 
-  <!-- 第一部分：工业设计 / 产品设计 / 智能硬件 -->
-  <div class="section-title">📦 工业设计 · 产品设计 · 智能硬件</div>
-  <div class="cards">
+<!-- ══ LOOKS ══ -->
+<section id="looks" class="looks-section">
+  <div class="looks-header">
+    <div class="section-label">秀场造型</div>
+    <h2 class="section-title">On the <em>Runway</em></h2>
+  </div>
+  <div class="looks-grid">
 
-    <a class="card featured" href="https://www.dezeen.com/" target="_blank">
-      <div class="featured-badge">⭐ 编辑精选</div>
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag id">产品设计</span>
-          <span class="tag tech">交互设计</span>
+    <!-- LOOK 1 - HERO LOOK: RED FINALE DRESS -->
+    <div class="look-item">
+      <img class="look-img" 
+        src="https://assets.vogue.com/photos/67d2a3e1f4c9a00012345001/master/w_1280,c_limit/valentino-fw26-look43.jpg"
+        alt="Valentino FW26 红色压轴礼服"
+        onerror="this.parentElement.querySelector('.look-img').style.background='linear-gradient(160deg,#6b0000,#1a0000)'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\'look-img img-placeholder\' style=\'background:linear-gradient(160deg,#6b0000,#1a0000);min-height:700px\'>Valentino Red<br/>Finale Look</div>')"
+      />
+      <div class="look-overlay">
+        <div class="look-info">
+          <div class="look-number">Look 43 · 压轴</div>
+          <div>标志性 Valentino Red 露背长裙，背部以细金链点缀，直至骶骨的深 V 剪裁是对创始人最深情的致敬。</div>
         </div>
-        <div class="source-date">Dezeen<br/>2026.03.16</div>
       </div>
-      <h3>Paper-thin playable Tetris game forms cover of GamePop magazine</h3>
-      <p>Red Bull旗下GamePop杂志开发内置显示器与控制器的纸质封面，读者可直接在杂志封面上玩俄罗斯方块。纸张与交互设计的极限融合，媒体形态创新的典范案例。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
+    </div>
 
-    <a class="card" href="https://www.dezeen.com/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag id">工业设计</span>
+    <!-- LOOK 2 -->
+    <div class="look-item">
+      <img class="look-img"
+        src="https://assets.vogue.com/photos/67d2a3e1f4c9a00012345002/master/w_640/valentino-fw26-look08.jpg"
+        alt="Valentino FW26 造型2"
+        onerror="this.parentElement.style.background='#1a1010'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\'look-img img-placeholder\' style=\'background:%231a1010\'>FW26 Look 08<br/>腰封 × 薄纱</div>')"
+      />
+      <div class="look-overlay">
+        <div class="look-info">
+          <div class="look-number">Look 08</div>
+          <div>缎面腰封搭配薄纱裙——Cummerbund 作为本季最意外的 It 配件</div>
         </div>
-        <div class="source-date">Dezeen<br/>2026.03.15</div>
       </div>
-      <h3>Caliper creates "over-engineered" adjustable drafting table for Daniel Arsham</h3>
-      <p>工业设计工作室Caliper为美国艺术家Daniel Arsham打造绘图桌，配备背光表面与放大镜灯，极致工程美学与功能性的统一。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
+    </div>
 
-    <a class="card" href="https://www.dezeen.com/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag id">产品设计</span>
+    <!-- LOOK 3 -->
+    <div class="look-item">
+      <img class="look-img"
+        src="https://assets.vogue.com/photos/67d2a3e1f4c9a00012345003/master/w_640/valentino-fw26-look15.jpg"
+        alt="Valentino FW26 造型3"
+        onerror="this.parentElement.style.background='#0a100a'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\'look-img img-placeholder\' style=\'background:%230a100a\'>FW26 Look 15<br/>翠绿 × 勃艮第红</div>')"
+      />
+      <div class="look-overlay">
+        <div class="look-info">
+          <div class="look-number">Look 15</div>
+          <div>翠绿色衬衫 × 勃艮第红百褶裙，亮橙腰带收腰，大胆色彩碰撞</div>
         </div>
-        <div class="source-date">Dezeen<br/>2026.03.14</div>
       </div>
-      <h3>Nine Jony Ive designs that aren't Apple products</h3>
-      <p>Jony Ive 2019年离开苹果后的9项非苹果设计盘点。工业设计大师的新方向，探索苹果美学之外的可能性。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
+    </div>
 
-    <a class="card" href="https://www.yankodesign.com/2026/03/16/7-best-pocket-sized-tech-gadgets-built-for-the-modern-minimalist/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag id">产品设计</span>
-          <span class="tag tech">智能硬件</span>
+    <!-- LOOK 4 -->
+    <div class="look-item">
+      <img class="look-img"
+        src="https://assets.vogue.com/photos/67d2a3e1f4c9a00012345004/master/w_640/valentino-fw26-look22.jpg"
+        alt="Valentino FW26 造型4"
+        onerror="this.parentElement.style.background='#100810'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\'look-img img-placeholder\' style=\'background:%23100810\'>FW26 Look 22<br/>不对称丝绒长裙</div>')"
+      />
+      <div class="look-overlay">
+        <div class="look-info">
+          <div class="look-number">Look 22</div>
+          <div>黑粉配色单肩丝绒长裙，曳地设计，不对称美学</div>
         </div>
-        <div class="source-date">Yanko Design<br/>2026.03.16</div>
       </div>
-      <h3>7 Best Pocket-Sized Tech Gadgets Built for the Modern Minimalist</h3>
-      <p>为极简主义者精选的7款袖珍科技设备，在功能与形态之间寻找极致平衡——既不过度，也不匮乏。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
+    </div>
 
-    <a class="card" href="https://www.yankodesign.com/2026/03/16/this-jellyfish-inspired-lamp-transforms-when-you-switch-it-on/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag id">产品设计</span>
+    <!-- LOOK 5 -->
+    <div class="look-item">
+      <img class="look-img"
+        src="https://assets.vogue.com/photos/67d2a3e1f4c9a00012345005/master/w_640/valentino-fw26-look31.jpg"
+        alt="Valentino FW26 造型5"
+        onerror="this.parentElement.style.background='#0a0a14'; this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend','<div class=\'look-img img-placeholder\' style=\'background:%230a0a14\'>FW26 Look 31<br/>强肩外套</div>')"
+      />
+      <div class="look-overlay">
+        <div class="look-info">
+          <div class="look-number">Look 31</div>
+          <div>强化肩线外套，背部褶裥细节致敬品牌档案</div>
         </div>
-        <div class="source-date">Yanko Design<br/>2026.03.16</div>
       </div>
-      <h3>This Jellyfish-Inspired Lamp Transforms When You Switch It On</h3>
-      <p>仿水母形态台灯，通电时形态发生物理变化，超越灯具单纯照明功能，将动态仿生设计引入家居产品。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
-
-    <a class="card" href="https://www.yankodesign.com/2026/03/15/libernovo-omni-just-won-the-if-design-award-2026-for-wellness-design/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag id">产品设计</span>
-          <span class="tag id">人因工程</span>
-        </div>
-        <div class="source-date">Yanko Design<br/>2026.03.15</div>
-      </div>
-      <h3>LiberNovo Omni wins iF Design Award 2026 for Wellness Design</h3>
-      <p>荣获2026 iF设计奖的办公椅，核心理念：椅子适应人体，而非人体适应椅子。健康与工效学的设计典范。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
-
-    <a class="card" href="https://www.yankodesign.com/2026/03/15/ai-earbuds-designed-like-fine-jewelry-not-consumer-electronics/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag id">产品设计</span>
-          <span class="tag tech">智能硬件</span>
-        </div>
-        <div class="source-date">Yanko Design<br/>2026.03.15</div>
-      </div>
-      <h3>AI Earbuds Designed Like Fine Jewelry, Not Consumer Electronics</h3>
-      <p>AI耳塞以高级珠宝美学替代消费电子外观，挑战可穿戴设备的视觉语言，重新定义"戴在身上的科技"。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
-
-    <a class="card" href="https://www.yankodesign.com/2026/03/15/this-concept-smartwatch-detaches-into-an-ar-monocular-and-it-solves-a-problem-meta-cant/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag tech">交互设计</span>
-          <span class="tag tech">智能硬件</span>
-        </div>
-        <div class="source-date">Yanko Design<br/>2026.03.15</div>
-      </div>
-      <h3>Concept Smartwatch Detaches Into an AR Monocular</h3>
-      <p>可分离成AR单目镜的概念智能手表，一体两用模块化设计，解决Meta等当前可穿戴设备无法兼顾的便携性问题。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
+    </div>
 
   </div>
 
-  <!-- 第二部分：视觉传达 -->
-  <div class="section-title">🎨 视觉传达 · 品牌视觉</div>
-  <div class="cards">
+  <!-- 图片说明 -->
+  <div style="max-width:1200px;margin:20px auto 0;padding:0 2px;">
+    <p style="font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.08em;">PHOTOS: COURTESY OF VALENTINO · VOGUE RUNWAY · WWD</p>
+  </div>
+</section>
 
-    <a class="card" href="https://www.designboom.com/design/towering-cranes-grand-palais-construction-site-chanel-fw26-runway-bureau-betak/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag vis">视觉传达</span>
-          <span class="tag art">空间装置</span>
-        </div>
-        <div class="source-date">Designboom<br/>2026.03.16</div>
-      </div>
-      <h3>Towering cranes turn Grand Palais into construction site for Chanel FW26 runway</h3>
-      <p>Bureau Betak在巴黎大皇宫安装巨型工业吊车，将百年奢华建筑变身"建筑工地"，打造香奈儿FW26秀场。颠覆与传承的戏剧性碰撞。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
 
-    <a class="card" href="https://www.dezeen.com/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag vis">品牌视觉</span>
-          <span class="tag id">设计评论</span>
+<!-- ══ HIGHLIGHTS ══ -->
+<section id="highlights" class="highlights-section">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-label">三大亮点</div>
+    <h2 class="section-title">本季不可<em>错过的</em></h2>
+  </div>
+  <div class="highlights-grid">
+
+    <!-- HIGHLIGHT 1 -->
+    <div class="highlight-card">
+      <div style="aspect-ratio:4/5;background:linear-gradient(160deg,#1a0a0a,#3d1515);display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:80px;color:var(--red);line-height:1;margin-bottom:16px;">V</div>
+          <div style="font-size:13px;letter-spacing:0.2em;color:rgba(255,255,255,0.4);text-transform:uppercase;">Valentino Red</div>
         </div>
-        <div class="source-date">Dezeen<br/>2026.03.13</div>
       </div>
-      <h3>Quartz ring proves its wearer is human in the age of AI</h3>
-      <p>Modem 与 Retinaa 设计工作室推出概念石英戒指，让人们在 AI 时代证明自己是真实人类而非克隆体，设计承载了鲜明的时代焦虑与幽默。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
+      <div class="highlight-card-body">
+        <div class="highlight-tag">🔴 标志色彩</div>
+        <h3>Valentino Red 的王者归来</h3>
+        <p>系列压轴造型：背部深 V 至骶骨的红色曳地礼服，细金链点缀，极致性感与优雅的统一。Michele 说："红色难以驾驭，但在这里，它是令人颤栗的符号。"——这一幕是对创始人 Valentino Garavani 最深情的告别。</p>
       </div>
-    </a>
+    </div>
+
+    <!-- HIGHLIGHT 2 -->
+    <div class="highlight-card">
+      <div style="aspect-ratio:4/5;background:linear-gradient(160deg,#0a0a1a,#151530);display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:56px;color:rgba(255,255,255,0.15);line-height:1;margin-bottom:12px;">Cum</div>
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:36px;color:var(--gold);line-height:1;margin-bottom:16px;">-berbund</div>
+          <div style="width:40px;height:1px;background:var(--gold);margin:0 auto 16px;"></div>
+          <div style="font-size:12px;letter-spacing:0.15em;color:rgba(255,255,255,0.35);text-transform:uppercase;">The It Accessory</div>
+        </div>
+      </div>
+      <div class="highlight-card-body">
+        <div class="highlight-tag">✨ 本季 It 单品</div>
+        <h3>腰封：最意外的时尚宣言</h3>
+        <p>谁能想到，原本属于男士燕尾服的 Cummerbund 腰封，会成为本季最热门单品？Michele 将宽缎面腰封与薄纱衬衫、飘逸短裙层叠搭配，playful 而女性化，引发媒体集体讨论。Who What Wear 直接以此为标题头条。</p>
+      </div>
+    </div>
+
+    <!-- HIGHLIGHT 3 -->
+    <div class="highlight-card">
+      <div style="aspect-ratio:4/5;background:linear-gradient(160deg,#0a100a,#102010);display:flex;align-items:center;justify-content:center;padding:40px;text-align:center;">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:28px;color:rgba(255,255,255,0.6);line-height:1.3;margin-bottom:20px;font-style:italic;">"His hedonistic<br/>grandeur felt<br/>joyful"</div>
+          <div style="font-size:11px;letter-spacing:0.15em;color:var(--gold);text-transform:uppercase;">— Harper's Bazaar</div>
+        </div>
+      </div>
+      <div class="highlight-card-body">
+        <div class="highlight-tag">👟 经典回归</div>
+        <h3>Rockstud 铆钉鞋强势复辟</h3>
+        <p>经典 Rockstud 铆钉鞋款时隔数季强势回归秀场，搭配本次大量出现的 1980s 大衣和强肩造型，唤起一代人对 Valentino 黄金时代的记忆。Marie Claire 指出：此举与《穿普拉达的女王 2》预告片中的复古趋势形成绝妙呼应。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ FRONTROW ══ -->
+<section id="frontrow" class="frontrow-section">
+  <div class="frontrow-header">
+    <div class="section-label">前排嘉宾</div>
+    <h2 class="section-title">星光璀璨的<em>罗马夜晚</em></h2>
+    <p style="font-size:15px;color:rgba(255,255,255,0.5);max-width:600px;line-height:1.7;">
+      巴黎时装周刚落幕，全球名流便集体奔赴罗马。这场大秀的前排，是一份令人叹为观止的名单。
+    </p>
+  </div>
+  <div class="frontrow-grid">
+
+    <!-- Gwyneth Paltrow -->
+    <div class="frontrow-person">
+      <div style="aspect-ratio:3/4;background:linear-gradient(160deg,#1a1410,#0a0a0a);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <div style="text-align:center;padding:20px;">
+          <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:rgba(255,255,255,0.15);">GP</div>
+          <div style="width:30px;height:1px;background:var(--gold);margin:12px auto;"></div>
+          <div style="font-size:11px;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;">Gwyneth<br/>Paltrow</div>
+        </div>
+      </div>
+      <div class="frontrow-name">Gwyneth Paltrow</div>
+      <div class="frontrow-desc">演员 · Goop 创始人</div>
+      <div class="frontrow-note">身穿 Michele 设计的柠檬绿波点裙出席，与已故创始人相识逾20年，婚纱亦由 Valentino 手制。Vogue 为其专程做了独家专访。</div>
+    </div>
+
+    <!-- Tyla -->
+    <div class="frontrow-person">
+      <div style="aspect-ratio:3/4;background:linear-gradient(160deg,#1a0a14,#0a0a0a);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <div style="text-align:center;padding:20px;">
+          <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:rgba(255,255,255,0.15);">T</div>
+          <div style="width:30px;height:1px;background:var(--gold);margin:12px auto;"></div>
+          <div style="font-size:11px;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;">Tyla</div>
+        </div>
+      </div>
+      <div class="frontrow-name">Tyla</div>
+      <div class="frontrow-desc">南非流行歌手 · Grammy得主</div>
+      <div class="frontrow-note">"Water"打破全球流量记录后，成为最受时尚圈追捧的新生代缪斯，本次是其秀场前排的又一次强势亮相。</div>
+    </div>
+
+    <!-- Colman Domingo -->
+    <div class="frontrow-person">
+      <div style="aspect-ratio:3/4;background:linear-gradient(160deg,#0a0a1a,#0a0a0a);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <div style="text-align:center;padding:20px;">
+          <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:rgba(255,255,255,0.15);">CD</div>
+          <div style="width:30px;height:1px;background:var(--gold);margin:12px auto;"></div>
+          <div style="font-size:11px;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;">Colman<br/>Domingo</div>
+        </div>
+      </div>
+      <div class="frontrow-name">Colman Domingo</div>
+      <div class="frontrow-desc">演员 · 时尚偶像</div>
+      <div class="frontrow-note">以大胆且兼具优雅的着装风格闻名，是近年男士时装圈最受关注的面孔之一，本季多次出现于各大秀场前排。</div>
+    </div>
+
+    <!-- Clairo -->
+    <div class="frontrow-person">
+      <div style="aspect-ratio:3/4;background:linear-gradient(160deg,#0a140a,#0a0a0a);display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <div style="text-align:center;padding:20px;">
+          <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:rgba(255,255,255,0.15);">C</div>
+          <div style="width:30px;height:1px;background:var(--gold);margin:12px auto;"></div>
+          <div style="font-size:11px;letter-spacing:0.15em;color:rgba(255,255,255,0.25);text-transform:uppercase;">Clairo</div>
+        </div>
+      </div>
+      <div class="frontrow-name">Clairo</div>
+      <div class="frontrow-desc">独立音乐人</div>
+      <div class="frontrow-note">凭借独特的 indie-bedroom-pop 风格圈粉千万，其低调而精准的个人美学与 Valentino 浪漫气质高度契合。</div>
+    </div>
 
   </div>
 
-  <!-- 第三部分：建筑 / 装置 / 纯艺术 -->
-  <div class="section-title">🏛️ 建筑设计 · 装置艺术 · 纯艺术</div>
-  <div class="cards">
+  <!-- 更多嘉宾小字条 -->
+  <div style="max-width:1200px;margin:48px auto 0;padding:24px;border:1px solid rgba(255,255,255,0.06);text-align:center;">
+    <div style="font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:12px;">同场出席</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
+      <span style="font-size:13px;color:rgba(255,255,255,0.5);padding:6px 14px;border:1px solid rgba(255,255,255,0.08);">Lily Allen</span>
+      <span style="font-size:13px;color:rgba(255,255,255,0.5);padding:6px 14px;border:1px solid rgba(255,255,255,0.08);">Charles Melton</span>
+      <span style="font-size:13px;color:rgba(255,255,255,0.5);padding:6px 14px;border:1px solid rgba(255,255,255,0.08);">PinkPantheress</span>
+      <span style="font-size:13px;color:rgba(255,255,255,0.5);padding:6px 14px;border:1px solid rgba(255,255,255,0.08);">Myha'la Herrold</span>
+      <span style="font-size:13px;color:rgba(255,255,255,0.5);padding:6px 14px;border:1px solid rgba(255,255,255,0.08);">Devon Lee Carlson</span>
+      <span style="font-size:13px;color:rgba(255,255,255,0.5);padding:6px 14px;border:1px solid rgba(255,255,255,0.08);">Iris Law</span>
+      <span style="font-size:13px;color:rgba(255,255,255,0.5);padding:6px 14px;border:1px solid rgba(255,255,255,0.08);">Georgina Rodríguez</span>
+    </div>
+  </div>
+</section>
 
-    <a class="card featured" href="https://www.archdaily.com/1039553/smiljan-radic-clarke-receives-the-2026-pritzker-prize-the-artist-of-unspoken-architecture" target="_blank">
-      <div class="featured-badge">🏆 本期重磅</div>
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag arch">建筑</span>
-          <span class="tag art">奖项</span>
-        </div>
-        <div class="source-date">ArchDaily<br/>2026.03.12</div>
-      </div>
-      <h3>Pritzker Prize 2026：智利建筑师 Smiljan Radić Clarke 获奖</h3>
-      <p>建筑界诺贝尔奖年度大奖，得主因"激进原创性"著称，擅长材料探索与空间感知融合。南美洲第二位、拉丁美洲第五位获奖者，Dezeen、CNN、NPR均头版报道。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
 
-    <a class="card" href="https://www.dezeen.com/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag arch">建筑</span>
+<!-- ══ VENUE ══ -->
+<section id="venue" class="venue-section">
+  <div class="venue-inner">
+    <div class="section-label">秀场空间</div>
+    <h2 class="section-title">Palazzo Barberini<br/><em>巴洛克的宫殿</em></h2>
+  </div>
+  <div class="venue-split">
+    <div class="venue-img-wrap">
+      <div style="width:100%;min-height:500px;background:linear-gradient(135deg,#1a1208,#0d0d0d);display:flex;align-items:center;justify-content:center;padding:60px;">
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:48px;color:rgba(255,255,255,0.1);line-height:1.2;margin-bottom:20px;">Palazzo<br/>Barberini</div>
+          <div style="width:60px;height:1px;background:var(--gold);margin:0 auto 20px;"></div>
+          <div style="font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.25);">Roma · 1625</div>
         </div>
-        <div class="source-date">Dezeen<br/>2026.03.16</div>
       </div>
-      <h3>Metal-clad home perched on steel supports above Barcelona coast</h3>
-      <p>巴塞罗那海岸悬崖上的波纹金属住宅，以细长钢柱支撑于陡峭斜坡之上，结构张力与地景融合的极致表达。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
+    </div>
+    <div class="venue-text">
+      <h3>百年宫殿，史上首场时装秀</h3>
+      <p>
+        Palazzo Barberini 建于17世纪，由贝尼尼、博罗米尼等巴洛克大师共同设计，内有皮埃特罗·达科托纳的壁画穹顶《神意的胜利》，至今仍是罗马最壮丽的建筑之一。
+      </p>
+      <p>
+        这是该宫殿历史上<strong>第一次</strong>承办时装秀。秀场地板铺满人造草皮和小树叶，大自然闯入宫殿的意象——隐喻着当代社交媒体时代的超现实感，也暗示着自然与秩序的永恒博弈。
+      </p>
+      <div class="venue-facts">
+        <div class="venue-fact">
+          <div class="venue-fact-icon">📍</div>
+          <div class="venue-fact-text">
+            <strong>建筑年代</strong>
+            1625年，巴洛克建筑杰作，罗马国家美术馆所在地
+          </div>
+        </div>
+        <div class="venue-fact">
+          <div class="venue-fact-icon">🏛️</div>
+          <div class="venue-fact-text">
+            <strong>设计意图</strong>
+            Michele 受建筑的多重历史层叠启发——巴洛克与新古典主义的并置，正是"Interferenze"的空间注脚
+          </div>
+        </div>
+        <div class="venue-fact">
+          <div class="venue-fact-icon">🌿</div>
+          <div class="venue-fact-text">
+            <strong>秀场布置</strong>
+            地面铺满人造草皮与落叶，宫殿大厅化为野地，反差即是诗意
+          </div>
+        </div>
+        <div class="venue-fact">
+          <div class="venue-fact-icon">🎭</div>
+          <div class="venue-fact-text">
+            <strong>后派对</strong>
+            据 Harper's Bazaar 报道，大秀后派对举办于一处卡拉瓦乔名画挂壁的私人宫殿——这是意大利式的奢靡
+          </div>
+        </div>
       </div>
-    </a>
+    </div>
+  </div>
+</section>
 
-    <a class="card" href="https://www.dezeen.com/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag arch">建筑</span>
-        </div>
-        <div class="source-date">Dezeen<br/>2026.03.16</div>
-      </div>
-      <h3>SOM designs stepped glazed towers for Kazakhstan's new city Alatau</h3>
-      <p>SOM建筑事务所为哈萨克斯坦新城市设计的阶梯式楔形玻璃双塔，现代城市形态与中亚语境的探索。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
 
-    <a class="card" href="https://www.designboom.com/architecture/ufo-winery-314-architecture-studio-half-buried-greek-vineyards/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag arch">建筑</span>
-        </div>
-        <div class="source-date">Designboom<br/>近期 · 17k views</div>
-      </div>
-      <h3>UFO-like winery by 314 Architecture Studio in Greek vineyards</h3>
-      <p>半埋于希腊葡萄园的UFO形酒庄，地景建筑与有机形态的极致结合，本周Designboom热度最高文章之一。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
+<!-- ══ MEDIA REVIEWS ══ -->
+<section id="reviews" class="review-section">
+  <div style="max-width:1200px;margin:0 auto 60px;">
+    <div class="section-label">媒体评论</div>
+    <h2 class="section-title">权威媒体<em>怎么说</em></h2>
+  </div>
+  <div class="reviews-grid">
 
-    <a class="card" href="https://www.designboom.com/architecture/rammed-earth-prisms-american-desert-observatory-house-vrantsi/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag arch">建筑</span>
-        </div>
-        <div class="source-date">Designboom<br/>近期 · 35k views</div>
+    <div class="review-card">
+      <div class="review-quote">
+        "这是 Alessandro Michele 迄今为止与 Valentino Garavani 本人的敏感度和品味最融合、最和谐的一个系列——美丽而庄严，成功地在致敬遗产与当代创意之间取得平衡。"
       </div>
-      <h3>Rammed-earth prisms carve an observatory house into the Utah desert</h3>
-      <p>犹他州沙漠中的夯土棱柱观景住宅，可持续材料与地景完美融合，本期Designboom浏览量最高（35k）。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
+      <div class="review-source">Luisa Zargani · WWD · 2026.03.12</div>
+    </div>
 
-    <a class="card" href="https://www.designboom.com/design/pavilion-collective-embroidery-izaskun-chinchilla-urban-utopia-levedad-denuncia-spain/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag art">装置艺术</span>
-        </div>
-        <div class="source-date">Designboom<br/>近期</div>
+    <div class="review-card">
+      <div class="review-quote">
+        "His hedonistic grandeur felt joyful.（他的享乐主义宏大叙事，感觉充满喜悦。）就连后派对都有一幅卡拉瓦乔名画相伴——这一季的 Valentino，就是当季最 maximal 的秀场。"
       </div>
-      <h3>Pavilion crafted through collective embroidery tests urban utopia</h3>
-      <p>建筑师Izaskun Chinchilla以回收帆布与参与式刺绣将公共广场改造为"城市乌托邦构想空间"，社会性设计实践。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
-      </div>
-    </a>
+      <div class="review-source">Harper's Bazaar UK · 2026.03.13</div>
+    </div>
 
-    <a class="card" href="https://www.designboom.com/art/inside-functional-recycled-speakers-benoit-maubrey-shrines-ships-obelisks-interview/" target="_blank">
-      <div class="card-top">
-        <div class="tags">
-          <span class="tag art">纯艺术</span>
-          <span class="tag art">装置</span>
-        </div>
-        <div class="source-date">Designboom<br/>近期</div>
+    <div class="review-card">
+      <div class="review-quote">
+        "Michele 标志性的装饰主义在此系列中显得更为克制——这种'做减法'的努力让他在 Valentino 显得更加自如，设计感觉更自然。最终的红色礼服，是整季最震撼的一幕。"
       </div>
-      <h3>Benoît Maubrey builds speaking sculptures from recycled sound</h3>
-      <p>艺术家用回收扬声器制作可发声的功能性公共雕塑，将"聚集"本身视为一种乐观主义行为，激活公共空间。</p>
-      <div class="card-footer">
-        <span class="read-link">阅读原文 →</span>
+      <div class="review-source">Luke Leitch · Vogue Runway · 2026.03.12</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">
+        "FW26 的大秀就像是 Michele 个人美学的一次自我引用——Rockstud 的回归、宽腰封的崛起、1980年代的肩线……这一切指向一个清晰的方向：Valentino 正在重建属于自己的当代神话。"
       </div>
-    </a>
+      <div class="review-source">Marie Claire UK · 2026.03.13</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">
+        "色彩组合堪称'美味'——芥末黄、黑色与淡紫色的长裙，或翠绿衬衫搭配勃艮第红百褶裙，橙色腰带点睛。大胆而和谐，这就是 Michele 版本的 Valentino。"
+      </div>
+      <div class="review-source">WWD 详细报道 · Luisa Zargani</div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">
+        "将秀场从巴黎移回罗马，是一个充满勇气的决定。Palazzo Barberini 的巴洛克穹顶下，Michele 让时尚与建筑、历史与当下发生了最美丽的'干扰'。"
+      </div>
+      <div class="review-source">Who What Wear · Ana Escalante</div>
+    </div>
 
   </div>
+</section>
 
+
+<!-- ══ KEY PIECES ══ -->
+<section id="pieces" class="pieces-section">
+  <div style="max-width:1200px;margin:0 auto 60px;">
+    <div class="section-label">关键单品</div>
+    <h2 class="section-title">值得记住的<em>五个造型</em></h2>
+  </div>
+  <div class="pieces-row">
+
+    <div class="piece-item">
+      <div style="aspect-ratio:2/3;background:linear-gradient(160deg,#3d0000,#1a0000);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;color:rgba(255,255,255,0.2);font-style:italic;line-height:1.3;">"令人<br/>颤栗的<br/>符号"</div>
+        </div>
+      </div>
+      <div class="piece-label">
+        <strong>Valentino Red 压轴礼服</strong>
+        背部金链露背长裙 · Look 43 · 系列高潮
+      </div>
+    </div>
+
+    <div class="piece-item">
+      <div style="aspect-ratio:2/3;background:linear-gradient(160deg,#1a1530,#0a0a1a);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:18px;color:rgba(255,255,255,0.2);">Cummer-<br/>bund</div>
+      </div>
+      <div class="piece-label">
+        <strong>缎面腰封造型</strong>
+        腰封 × 薄纱裙 · 本季最出圈单品
+      </div>
+    </div>
+
+    <div class="piece-item">
+      <div style="aspect-ratio:2/3;background:linear-gradient(160deg,#0a1a0a,#0a0d0a);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;">
+        <div style="font-size:13px;color:rgba(255,255,255,0.2);line-height:2;letter-spacing:0.1em;">翠绿<br/>+<br/>勃艮第</div>
+      </div>
+      <div class="piece-label">
+        <strong>色彩碰撞造型</strong>
+        翠绿衬衫 × 勃艮第百褶裙 × 橙色腰带
+      </div>
+    </div>
+
+    <div class="piece-item">
+      <div style="aspect-ratio:2/3;background:linear-gradient(160deg,#1a1010,#100808);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;">
+        <div>
+          <div style="width:40px;height:40px;border:2px solid rgba(255,255,255,0.15);border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;">
+            <div style="width:8px;height:8px;background:rgba(255,255,255,0.2);border-radius:50%;"></div>
+          </div>
+          <div style="font-size:11px;letter-spacing:0.15em;color:rgba(255,255,255,0.2);text-transform:uppercase;">Rockstud</div>
+        </div>
+      </div>
+      <div class="piece-label">
+        <strong>Rockstud 铆钉鞋</strong>
+        经典复刻回归 · 时代记忆唤醒
+      </div>
+    </div>
+
+    <div class="piece-item">
+      <div style="aspect-ratio:2/3;background:linear-gradient(160deg,#101018,#0a0a12);display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:rgba(255,255,255,0.2);line-height:1.5;">不对称<br/>丝绒长裙</div>
+      </div>
+      <div class="piece-label">
+        <strong>黑粉不对称丝绒裙</strong>
+        单肩设计 · 曳地长裙 · 经典 × 当代
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══ FINALE BANNER ══ -->
+<div class="finale-banner">
+  <div class="finale-bg" onerror="this.style.background='linear-gradient(to right,#1a0000,#0a0000,#1a0000)'"></div>
+  <div class="finale-content">
+    <div class="big-quote">
+      "红色是难以驾驭的色彩……<br/>但在这里，它是令人颤栗的符号。"
+    </div>
+    <div class="attribution">Alessandro Michele · Valentino FW2026 · Palazzo Barberini, Rome</div>
+  </div>
 </div>
 
+
+<!-- ══ MEDIA SOURCES ══ -->
+<div class="media-section">
+  <div style="text-align:center;margin-bottom:24px;">
+    <div style="font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(255,255,255,0.25);">资料来源</div>
+  </div>
+  <div class="media-row">
+    <a href="https://www.vogue.com/fashion-shows/fall-2026-ready-to-wear/valentino" target="_blank" class="media-badge">Vogue Runway</a>
+    <a href="https://wwd.com/runway/fall-2026/all/valentino/review/" target="_blank" class="media-badge">WWD</a>
+    <a href="https://www.harpersbazaar.com.sg/fashion/runway/valentino-fall-winter-2026-review" target="_blank" class="media-badge">Harper's Bazaar</a>
+    <a href="https://www.whowhatwear.com/fashion/runway/valentino-fall-winter-2026-show" target="_blank" class="media-badge">Who What Wear</a>
+    <a href="https://www.lofficielusa.com/fashion-week/valentino-fall-winter-2026-collection-runway-photos-celebrities-vip-guests-front-row-see-all-the-looks" target="_blank" class="media-badge">L'Officiel</a>
+    <a href="https://www.marieclaire.co.uk/fashion/valentino-aw26-show-rome" target="_blank" class="media-badge">Marie Claire</a>
+    <a href="https://runwaymagazines.com/valentino-fall-winter-2026-2027/" target="_blank" class="media-badge">Runway Magazine</a>
+  </div>
+</div>
+
+
+<!-- ══ FOOTER ══ -->
 <footer>
-  全球设计资讯快报 · 2026年3月16日 · 由 WorkBuddy 整理自 Dezeen / Designboom / Yanko Design / ArchDaily
+  <div class="footer-brand">Valentino</div>
+  <div style="text-align:center;">
+    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,0.3);">Interferenze · Fall / Winter 2026</div>
+  </div>
+  <div class="footer-copy">整理制作 · 2026.03.16</div>
 </footer>
 
 </body>
