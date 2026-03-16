@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>全球设计资讯快报 · 2026.03.16</title>
+  <style>
+    :root {
+      --bg: #f7f6f3;
+      --card: #ffffff;
+      --accent: #1a1a1a;
+      --tag-id: #e8f4fd;
+      --tag-id-text: #1a6fa0;
+      --tag-arch: #f0f7ee;
+      --tag-arch-text: #2d7a3a;
+      --tag-vis: #fdf3e8;
+      --tag-vis-text: #b5620a;
+      --tag-art: #f5eefa;
+      --tag-art-text: #7b3faa;
+      --tag-tech: #fff0f0;
+      --tag-tech-text: #c0392b;
+      --border: #e8e6e1;
+      --muted: #888;
+      --highlight: #f0ebe0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--accent);
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 48px 40px 36px;
+    }
+
+    header .label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    header .meta {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #aaa;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    header .meta span { display: flex; align-items: center; gap: 5px; }
+
+    .sources-bar {
+      background: #2a2a2a;
+      padding: 10px 40px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .sources-bar .src-label {
+      font-size: 11px;
+      color: #666;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .sources-bar a {
+      font-size: 12px;
+      color: #ccc;
+      text-decoration: none;
+      background: #383838;
+      padding: 3px 10px;
+      border-radius: 20px;
+      transition: background 0.2s;
+    }
+
+    .sources-bar a:hover { background: #555; color: #fff; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+
+    .highlight-box {
+      background: var(--highlight);
+      border-left: 4px solid #c0a060;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 40px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .highlight-box strong { color: #8a6020; }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: box-shadow 0.2s, transform 0.15s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.09);
+      transform: translateY(-2px);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .tag.id    { background: var(--tag-id);   color: var(--tag-id-text); }
+    .tag.arch  { background: var(--tag-arch);  color: var(--tag-arch-text); }
+    .tag.vis   { background: var(--tag-vis);   color: var(--tag-vis-text); }
+    .tag.art   { background: var(--tag-art);   color: var(--tag-art-text); }
+    .tag.tech  { background: var(--tag-tech);  color: var(--tag-tech-text); }
+
+    .source-date {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    .card h3 {
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: #1a1a1a;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #555;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .read-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: #1a6fa0;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .read-link:hover { text-decoration: underline; }
+
+    .featured {
+      border: 1.5px solid #c0a060;
+      position: relative;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -1px;
+      right: 16px;
+      background: #c0a060;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 0 0 6px 6px;
+      text-transform: uppercase;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 12px;
+      color: #bbb;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 32px 20px 24px; }
+      .sources-bar { padding: 10px 20px; }
+      .container { padding: 28px 16px 60px; }
+      header h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="label">Art & Design Intelligence</div>
+  <h1>全球设计资讯快报</h1>
+  <div class="meta">
+    <span>📅 2026年3月16日</span>
+    <span>📌 17条精选资讯</span>
+    <span>🔍 工业设计 · 建筑 · 视觉 · 艺术</span>
+  </div>
+</header>
+
+<div class="sources-bar">
+  <span class="src-label">信源</span>
+  <a href="https://www.dezeen.com" target="_blank">Dezeen</a>
+  <a href="https://www.designboom.com" target="_blank">Designboom</a>
+  <a href="https://www.yankodesign.com" target="_blank">Yanko Design</a>
+  <a href="https://www.archdaily.com" target="_blank">ArchDaily</a>
+  <a href="https://www.core77.com" target="_blank">Core77</a>
+</div>
+
+<div class="container">
+
+  <!-- 本期亮点 -->
+  <div class="highlight-box">
+    🏆 <strong>本期重磅：</strong>2026年普利兹克建筑奖（建筑界诺贝尔）授予智利建筑师 <strong>Smiljan Radić Clarke</strong>，南美第二位获奖者，以"激进原创性"著称。&nbsp;&nbsp;
+    🏙️ <strong>Design Shanghai 2026</strong> 将于 3月19-22日 在上海展览中心开幕，全球500+品牌参展，亚洲年度最大设计盛会。
+  </div>
+
+  <!-- 第一部分：工业设计 / 产品设计 / 智能硬件 -->
+  <div class="section-title">📦 工业设计 · 产品设计 · 智能硬件</div>
+  <div class="cards">
+
+    <a class="card featured" href="https://www.dezeen.com/" target="_blank">
+      <div class="featured-badge">⭐ 编辑精选</div>
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag id">产品设计</span>
+          <span class="tag tech">交互设计</span>
+        </div>
+        <div class="source-date">Dezeen<br/>2026.03.16</div>
+      </div>
+      <h3>Paper-thin playable Tetris game forms cover of GamePop magazine</h3>
+      <p>Red Bull旗下GamePop杂志开发内置显示器与控制器的纸质封面，读者可直接在杂志封面上玩俄罗斯方块。纸张与交互设计的极限融合，媒体形态创新的典范案例。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.dezeen.com/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag id">工业设计</span>
+        </div>
+        <div class="source-date">Dezeen<br/>2026.03.15</div>
+      </div>
+      <h3>Caliper creates "over-engineered" adjustable drafting table for Daniel Arsham</h3>
+      <p>工业设计工作室Caliper为美国艺术家Daniel Arsham打造绘图桌，配备背光表面与放大镜灯，极致工程美学与功能性的统一。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.dezeen.com/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag id">产品设计</span>
+        </div>
+        <div class="source-date">Dezeen<br/>2026.03.14</div>
+      </div>
+      <h3>Nine Jony Ive designs that aren't Apple products</h3>
+      <p>Jony Ive 2019年离开苹果后的9项非苹果设计盘点。工业设计大师的新方向，探索苹果美学之外的可能性。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.yankodesign.com/2026/03/16/7-best-pocket-sized-tech-gadgets-built-for-the-modern-minimalist/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag id">产品设计</span>
+          <span class="tag tech">智能硬件</span>
+        </div>
+        <div class="source-date">Yanko Design<br/>2026.03.16</div>
+      </div>
+      <h3>7 Best Pocket-Sized Tech Gadgets Built for the Modern Minimalist</h3>
+      <p>为极简主义者精选的7款袖珍科技设备，在功能与形态之间寻找极致平衡——既不过度，也不匮乏。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.yankodesign.com/2026/03/16/this-jellyfish-inspired-lamp-transforms-when-you-switch-it-on/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag id">产品设计</span>
+        </div>
+        <div class="source-date">Yanko Design<br/>2026.03.16</div>
+      </div>
+      <h3>This Jellyfish-Inspired Lamp Transforms When You Switch It On</h3>
+      <p>仿水母形态台灯，通电时形态发生物理变化，超越灯具单纯照明功能，将动态仿生设计引入家居产品。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.yankodesign.com/2026/03/15/libernovo-omni-just-won-the-if-design-award-2026-for-wellness-design/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag id">产品设计</span>
+          <span class="tag id">人因工程</span>
+        </div>
+        <div class="source-date">Yanko Design<br/>2026.03.15</div>
+      </div>
+      <h3>LiberNovo Omni wins iF Design Award 2026 for Wellness Design</h3>
+      <p>荣获2026 iF设计奖的办公椅，核心理念：椅子适应人体，而非人体适应椅子。健康与工效学的设计典范。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.yankodesign.com/2026/03/15/ai-earbuds-designed-like-fine-jewelry-not-consumer-electronics/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag id">产品设计</span>
+          <span class="tag tech">智能硬件</span>
+        </div>
+        <div class="source-date">Yanko Design<br/>2026.03.15</div>
+      </div>
+      <h3>AI Earbuds Designed Like Fine Jewelry, Not Consumer Electronics</h3>
+      <p>AI耳塞以高级珠宝美学替代消费电子外观，挑战可穿戴设备的视觉语言，重新定义"戴在身上的科技"。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.yankodesign.com/2026/03/15/this-concept-smartwatch-detaches-into-an-ar-monocular-and-it-solves-a-problem-meta-cant/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag tech">交互设计</span>
+          <span class="tag tech">智能硬件</span>
+        </div>
+        <div class="source-date">Yanko Design<br/>2026.03.15</div>
+      </div>
+      <h3>Concept Smartwatch Detaches Into an AR Monocular</h3>
+      <p>可分离成AR单目镜的概念智能手表，一体两用模块化设计，解决Meta等当前可穿戴设备无法兼顾的便携性问题。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- 第二部分：视觉传达 -->
+  <div class="section-title">🎨 视觉传达 · 品牌视觉</div>
+  <div class="cards">
+
+    <a class="card" href="https://www.designboom.com/design/towering-cranes-grand-palais-construction-site-chanel-fw26-runway-bureau-betak/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag vis">视觉传达</span>
+          <span class="tag art">空间装置</span>
+        </div>
+        <div class="source-date">Designboom<br/>2026.03.16</div>
+      </div>
+      <h3>Towering cranes turn Grand Palais into construction site for Chanel FW26 runway</h3>
+      <p>Bureau Betak在巴黎大皇宫安装巨型工业吊车，将百年奢华建筑变身"建筑工地"，打造香奈儿FW26秀场。颠覆与传承的戏剧性碰撞。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.dezeen.com/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag vis">品牌视觉</span>
+          <span class="tag id">设计评论</span>
+        </div>
+        <div class="source-date">Dezeen<br/>2026.03.13</div>
+      </div>
+      <h3>Quartz ring proves its wearer is human in the age of AI</h3>
+      <p>Modem 与 Retinaa 设计工作室推出概念石英戒指，让人们在 AI 时代证明自己是真实人类而非克隆体，设计承载了鲜明的时代焦虑与幽默。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- 第三部分：建筑 / 装置 / 纯艺术 -->
+  <div class="section-title">🏛️ 建筑设计 · 装置艺术 · 纯艺术</div>
+  <div class="cards">
+
+    <a class="card featured" href="https://www.archdaily.com/1039553/smiljan-radic-clarke-receives-the-2026-pritzker-prize-the-artist-of-unspoken-architecture" target="_blank">
+      <div class="featured-badge">🏆 本期重磅</div>
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag arch">建筑</span>
+          <span class="tag art">奖项</span>
+        </div>
+        <div class="source-date">ArchDaily<br/>2026.03.12</div>
+      </div>
+      <h3>Pritzker Prize 2026：智利建筑师 Smiljan Radić Clarke 获奖</h3>
+      <p>建筑界诺贝尔奖年度大奖，得主因"激进原创性"著称，擅长材料探索与空间感知融合。南美洲第二位、拉丁美洲第五位获奖者，Dezeen、CNN、NPR均头版报道。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.dezeen.com/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag arch">建筑</span>
+        </div>
+        <div class="source-date">Dezeen<br/>2026.03.16</div>
+      </div>
+      <h3>Metal-clad home perched on steel supports above Barcelona coast</h3>
+      <p>巴塞罗那海岸悬崖上的波纹金属住宅，以细长钢柱支撑于陡峭斜坡之上，结构张力与地景融合的极致表达。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.dezeen.com/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag arch">建筑</span>
+        </div>
+        <div class="source-date">Dezeen<br/>2026.03.16</div>
+      </div>
+      <h3>SOM designs stepped glazed towers for Kazakhstan's new city Alatau</h3>
+      <p>SOM建筑事务所为哈萨克斯坦新城市设计的阶梯式楔形玻璃双塔，现代城市形态与中亚语境的探索。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.designboom.com/architecture/ufo-winery-314-architecture-studio-half-buried-greek-vineyards/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag arch">建筑</span>
+        </div>
+        <div class="source-date">Designboom<br/>近期 · 17k views</div>
+      </div>
+      <h3>UFO-like winery by 314 Architecture Studio in Greek vineyards</h3>
+      <p>半埋于希腊葡萄园的UFO形酒庄，地景建筑与有机形态的极致结合，本周Designboom热度最高文章之一。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.designboom.com/architecture/rammed-earth-prisms-american-desert-observatory-house-vrantsi/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag arch">建筑</span>
+        </div>
+        <div class="source-date">Designboom<br/>近期 · 35k views</div>
+      </div>
+      <h3>Rammed-earth prisms carve an observatory house into the Utah desert</h3>
+      <p>犹他州沙漠中的夯土棱柱观景住宅，可持续材料与地景完美融合，本期Designboom浏览量最高（35k）。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.designboom.com/design/pavilion-collective-embroidery-izaskun-chinchilla-urban-utopia-levedad-denuncia-spain/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag art">装置艺术</span>
+        </div>
+        <div class="source-date">Designboom<br/>近期</div>
+      </div>
+      <h3>Pavilion crafted through collective embroidery tests urban utopia</h3>
+      <p>建筑师Izaskun Chinchilla以回收帆布与参与式刺绣将公共广场改造为"城市乌托邦构想空间"，社会性设计实践。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+    <a class="card" href="https://www.designboom.com/art/inside-functional-recycled-speakers-benoit-maubrey-shrines-ships-obelisks-interview/" target="_blank">
+      <div class="card-top">
+        <div class="tags">
+          <span class="tag art">纯艺术</span>
+          <span class="tag art">装置</span>
+        </div>
+        <div class="source-date">Designboom<br/>近期</div>
+      </div>
+      <h3>Benoît Maubrey builds speaking sculptures from recycled sound</h3>
+      <p>艺术家用回收扬声器制作可发声的功能性公共雕塑，将"聚集"本身视为一种乐观主义行为，激活公共空间。</p>
+      <div class="card-footer">
+        <span class="read-link">阅读原文 →</span>
+      </div>
+    </a>
+
+  </div>
+
+</div>
+
+<footer>
+  全球设计资讯快报 · 2026年3月16日 · 由 WorkBuddy 整理自 Dezeen / Designboom / Yanko Design / ArchDaily
+</footer>
+
+</body>
+</html>
